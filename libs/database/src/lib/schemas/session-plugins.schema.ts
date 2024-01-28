@@ -1,15 +1,15 @@
 import { Prop, Schema, SchemaFactory,  } from '@nestjs/mongoose';
-import { Document, Schema as MongooseSchema } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 
 export type SessionPluginsDocument = SessionPlugins & Document;
 
 @Schema({ timestamps: true, collection: 'SessionPlugins' })
 export class SessionPlugins extends Document {
     @Prop({ required: true })
-    sessionId!: MongooseSchema.Types.ObjectId;
+    sessionId!: ObjectId;
 
     @Prop({ required: true })
-    pluginId!: MongooseSchema.Types.ObjectId;
+    pluginId!: ObjectId;
 
     @Prop({ default: '' })
     data!: string;

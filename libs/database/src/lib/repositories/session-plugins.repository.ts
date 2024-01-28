@@ -8,7 +8,7 @@ import { SessionPlugins, SessionPluginsDocument } from '../schemas/session-plugi
 export class SessionPluginsRepository extends BaseRepository {
   constructor(
     @InjectModel(SessionPlugins.name)
-    private readonly model: Model<SessionPluginsDocument>,
+    protected override readonly model: Model<SessionPluginsDocument>,
   ) {
       super(model);
   }

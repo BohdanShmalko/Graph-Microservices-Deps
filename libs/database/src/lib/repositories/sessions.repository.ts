@@ -8,8 +8,12 @@ import { Sessions, SessionsDocument } from '../schemas/sessions.schema';
 export class SessionsRepository extends BaseRepository {
   constructor(
     @InjectModel(Sessions.name)
-    private readonly model: Model<SessionsDocument>,
+    protected override readonly model: Model<SessionsDocument>,
   ) {
       super(model);
+  }
+
+  public async findSessionByToken(token: string): Promise<SessionsDocument | null> {
+    return this.model.findOne({ token }).exec();
   }
 }

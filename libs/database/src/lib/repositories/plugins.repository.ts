@@ -8,7 +8,7 @@ import { Plugins, PluginsDocument } from '../schemas/plugins.schema';
 export class PluginsRepository extends BaseRepository {
   constructor(
     @InjectModel(Plugins.name)
-    private readonly model: Model<PluginsDocument>,
+    protected override readonly model: Model<PluginsDocument>,
   ) {
       super(model);
   }

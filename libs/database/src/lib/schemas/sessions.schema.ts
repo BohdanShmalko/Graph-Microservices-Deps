@@ -5,7 +5,7 @@ export type SessionsDocument = Sessions & Document;
 
 @Schema({ timestamps: true, collection: 'Sessions' })
 export class Sessions extends Document {
-    @Prop({ required: true })
+    @Prop({ required: true, index: true })
     token!: string;
 }
 
